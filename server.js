@@ -25,13 +25,13 @@ app.get('/', (request, response) => {
 app.get('/books', getBooks);
 
 async function getBooks(request, response, next) {
-  
+//do not need line 29 to 33-- maybe not??--could be useful
   try{
     let queryObject = {};
     if(request.query.email){
       queryObject.email = request.query.email;
     }
-
+    //----------------------email.request.query
     let results = await Book.find(queryObject);
     response.status(200).send(results);
   } catch(error){
