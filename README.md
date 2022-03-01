@@ -36,9 +36,9 @@ Estimate of time needed to complete: 3
 
 Start time: 330pm
 
-Finish time: 
+Finish time: 530pm
 
-Actual time needed to complete: 
+Actual time needed to complete: 2
 
 ## Credit and Collaborations
 <!-- Give credit (and a link) to other people or resources that helped you build this application. -->
