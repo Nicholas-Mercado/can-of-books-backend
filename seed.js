@@ -30,7 +30,7 @@ async function seed(){
 
   await Book.create({
     title: 'The way of the kings', 
-    email: 'Nicholasamerc@gmail.com', 
+    email: 'nicholasamerc@gmail.com', 
     description: 'Shallan, a minor lighteyed woman whose family and lands are in danger, hatches a daring plot to switch a broken Soulcaster (a device that allows people to change objects to other things) with a working one belonging to Jasnah Kholin, sister of the Alethi king.',
     status: true
   });
@@ -42,4 +42,7 @@ async function seed(){
     status: true
   });
   
+  mongoose.disconnect();
 }
+
+seed();
