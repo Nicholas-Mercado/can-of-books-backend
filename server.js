@@ -15,6 +15,7 @@ db.once('open', function () {
 const Book = require('./models/book');
 const app = express();
 app.use(cors());
+app.use(express.json());
 const PORT = process.env.PORT || 3002;
 
 
@@ -23,6 +24,8 @@ app.get('/', (request, response) => {
 });
 
 app.get('/books', getBooks);
+app.post('/books', postBooks);
+app.delete('/books/:id', deleteBooks);
 
 async function getBooks(request, response, next) {
 //do not need line 29 to 33-- maybe not??--could be useful
@@ -34,6 +37,29 @@ async function getBooks(request, response, next) {
     //----------------------email.request.query
     let results = await Book.find(queryObject);
     response.status(200).send(results);
+  } catch(error){
+    next(error);
+  }
+}
+
+async function postBooks(request, response, next){
+  console.log(request.body);
+  try{
+    let createdBook = await Book.create(request.body);
+    response.status(200).send(createdBook);
+  } catch(error){
+    next(error);
+  }
+}
+
+async function deleteBooks(request, response, next){
+  // access path parameter variable as an object property
+  let id = request.params.id;
+  //proof of life is good
+  console.log(id);
+  try{
+    await Book.findByIdAndDelete(id);
+    response.send('book deleted');
   } catch(error){
     next(error);
   }
