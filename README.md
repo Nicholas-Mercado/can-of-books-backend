@@ -55,4 +55,3 @@ Finish time: 2:30pm
 Actual time needed to complete: 30 minutes
 
 ## Credit and Collaborations
-
