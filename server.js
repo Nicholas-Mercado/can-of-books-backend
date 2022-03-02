@@ -18,7 +18,6 @@ app.use(cors());
 app.use(express.json());
 const PORT = process.env.PORT || 3002;
 
-
 app.get('/', (request, response) => {
   response.status(200).send('Greetings from server');
 });
@@ -26,41 +25,53 @@ app.get('/', (request, response) => {
 app.get('/books', getBooks);
 app.post('/books', postBooks);
 app.delete('/books/:id', deleteBooks);
+app.put('/books/:id', putBooks);
 
 async function getBooks(request, response, next) {
-//do not need line 29 to 33-- maybe not??--could be useful
-  try{
+  //do not need line 29 to 33-- maybe not??--could be useful
+  try {
     let queryObject = {};
-    if(request.query.email){
+    if (request.query.email) {
       queryObject.email = request.query.email;
     }
     //----------------------email.request.query
     let results = await Book.find(queryObject);
     response.status(200).send(results);
-  } catch(error){
+  } catch (error) {
     next(error);
   }
 }
 
-async function postBooks(request, response, next){
-  console.log(request.body);
-  try{
+async function postBooks(request, response, next) {
+  try {
     let createdBook = await Book.create(request.body);
     response.status(200).send(createdBook);
-  } catch(error){
+  } catch (error) {
     next(error);
   }
 }
 
-async function deleteBooks(request, response, next){
+async function deleteBooks(request, response, next) {
   // access path parameter variable as an object property
   let id = request.params.id;
   //proof of life is good
-  console.log(id);
-  try{
+  try {
     await Book.findByIdAndDelete(id);
     response.send('book deleted');
-  } catch(error){
+  } catch (error) {
+    next(error);
+  }
+}
+
+async function putBooks(request, response, next) {
+  let id = request.params.id;
+  try {
+    let updatedBook = await Book.findByIdAndUpdate(id, request.body, {
+      new: true,
+      overwrite: true,
+    });
+    response.status(200).send(updatedBook);
+  } catch (error) {
     next(error);
   }
 }
@@ -72,6 +83,5 @@ app.get('*', (request, response) => {
 app.use((error, req, res, next) => {
   res.status(500).send(error.message);
 });
-
 
 app.listen(PORT, () => console.log(`listening on ${PORT}`));

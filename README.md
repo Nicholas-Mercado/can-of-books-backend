@@ -23,6 +23,7 @@
 02-28-2022 5:30pm - Added database info
 02-28-2022 7:00pm - Got started on Book Component Rendering
 03-01-2022 2:30pm - Added POST and DELETE verbs to server
+03-02-2022 2:30pm - Added PUT to server
 
 ## Estimates
 
@@ -53,5 +54,12 @@ Estimate of time needed to complete: 1 hour
 Start time: 2pm
 Finish time: 2:30pm
 Actual time needed to complete: 30 minutes
+
+### Name of feature: PUT
+
+Estimate of time needed to complete: 30 minutes
+Start time: 1:45pm
+Finish time: 2:05pm
+Actual time needed to complete: 20 minutes
 
 ## Credit and Collaborations
