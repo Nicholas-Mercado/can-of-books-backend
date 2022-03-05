@@ -2,7 +2,7 @@
 
 **Author**: Nicholas Mercado
             Brady Camp
-**Version**: 1.4.0 
+**Version**: 1.4.5
 
 ## Overview
 
@@ -24,6 +24,7 @@
 02-28-2022 7:00pm - Got started on Book Component Rendering
 03-01-2022 2:30pm - Added POST and DELETE verbs to server
 03-02-2022 2:30pm - Added PUT to server
+03-02-2022 2:30pm - Added Auth0
 
 ## Estimates
 
@@ -61,5 +62,12 @@ Estimate of time needed to complete: 30 minutes
 Start time: 1:45pm
 Finish time: 2:05pm
 Actual time needed to complete: 20 minutes
+
+### Name of feature: Aut0
+
+Estimate of time needed to complete: 1 hour
+Start time: 6:00pm
+Finish time: 7:05pm
+Actual time needed to complete: 1 hour
 
 ## Credit and Collaborations
