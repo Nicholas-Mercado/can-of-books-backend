@@ -13,6 +13,7 @@ db.once('open', function () {
 });
 
 const Book = require('./models/book');
+// const verifyUser = require('./auth'); --- bringing in auth.js
 const app = express();
 app.use(cors());
 app.use(express.json());
@@ -27,8 +28,9 @@ app.post('/books', postBooks);
 app.delete('/books/:id', deleteBooks);
 app.put('/books/:id', putBooks);
 
+
+
 async function getBooks(request, response, next) {
-  //do not need line 29 to 33-- maybe not??--could be useful
   try {
     let queryObject = {};
     if (request.query.email) {
